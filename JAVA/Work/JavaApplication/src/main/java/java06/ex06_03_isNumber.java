@@ -18,27 +18,28 @@ public class ex06_03_isNumber {
     }
     
     public static boolean isNumber(String str) {
-        int cnt=0;
+        int  cnt=0;
+        char chr;
         
-        for (int i=1; i<=str.length(); i=i+1) {
-            if (str.charAt(i)>='0' && str.charAt(i)<='9') {
-                
-            }
-            else {
+        if (str == null || str.length() == 0) {
+            return false;
+        }
+        
+        for (int i=0; i<str.length(); i=i+1) {
+            chr = str.charAt(i);
+            if (chr>='0' && chr<='9') {
                 cnt = cnt + 1;
             }
-
-            if (cnt > 0) {
-                return false;
-            }
-
-            if (str == null || str.length() == 0) {
-                return false;
-            }
             else {
-                return true;
+                return false;
             }
         }
-        return true;
+        
+        if (cnt == str.length()) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }
