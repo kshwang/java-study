@@ -1,11 +1,13 @@
-package java13.st4emp;
+package java14.st6manager;
 
 public class Emp {
-    private String name;
-    private String addr;
-    private int    saly;
-    private int    bday;
     
+    private   String name;
+    private   String addr;
+    protected int    saly;
+    private   int    bday;
+    
+    //getter/setter
     public String getName() {
         return name;
     }
@@ -31,6 +33,14 @@ public class Emp {
         this.bday = bday;
     }
     
+    //toString
+    @Override
+    public String toString() {
+        return "Emp [name=" + name + ", addr=" + addr + ", saly=" + saly
+                + ", bday=" + bday + "]";
+    }
+    
+    //constructor
     public Emp() {
         super();
     }
@@ -41,10 +51,5 @@ public class Emp {
         this.saly = saly;
         this.bday = bday;
     }
-    @Override
-    public String toString() {
-        return "Emp [name=" + name + ", addr=" + addr + ", saly=" + saly
-                + ", bday=" + bday + "]";
-    }
-    
+   
 }

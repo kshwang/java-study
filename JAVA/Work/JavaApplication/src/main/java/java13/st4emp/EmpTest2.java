@@ -2,7 +2,7 @@ package java13.st4emp;
 
 import java.util.Scanner;
 
-public class EmpTest {
+public class EmpTest2 {
     
     public static void main(String[] args) {
         //int[] arr = new int[3]
@@ -19,11 +19,7 @@ public class EmpTest {
             System.out.print("생년월일(yyyymmdd)을 입력하시오: ");
             int    bday = scan.nextInt();
             
-            Emp emp1 = new Emp();
-            emp1.setName(name);
-            emp1.setAddr(addr);
-            emp1.setSaly(saly);
-            emp1.setBday(bday);
+            Emp emp1 = new Emp(name,addr,saly,bday);
             
             //직원의 인스턴스를 배열에 저장
             arr[i] = emp1;
@@ -31,11 +27,13 @@ public class EmpTest {
             System.out.println(emp1.toString());
             
         }
-        System.out.println("----------------");
-        for (int i=0; i<arr.length; i=i+1) {
-            System.out.println(arr[i]);
+        System.out.println("------------------------");
+//        for (int i=0; i<arr.length; i=i+1) {
+        //foreach문 이용하여 출력
+        for (Emp e : arr) {
+            System.out.println(e.toString());
         }
-        System.out.println("------ 끝 ------");
+        System.out.println("---------- 끝 ----------");
         
     }
     
