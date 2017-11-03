@@ -10,7 +10,7 @@ public class ShapeTest3 {
         Rectangle r = (Rectangle) s;
         r.x = 10;
         r.y = 10;
-        r.widht  = 200;
+        r.wight  = 200;
         r.height = 200;
         
         System.out.println("s"+s.toString());

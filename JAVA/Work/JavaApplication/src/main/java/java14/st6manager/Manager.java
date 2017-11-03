@@ -31,10 +31,10 @@ public class Manager extends Emp {
 
     //메서드
     public void test() {
-        String info = "name:"+super.getName();
-        info = info+", addr:"+super.getAddr();
-        info = info+", saly:"+super.getSaly();
-        info = info+", bday:"+super.getBday();
+        String info = "이름:"+super.getName();
+        info = info+", 주소:"+super.getAddr();
+        info = info+", 급여:"+super.getSaly();
+        info = info+", 생일:"+super.getBday();
         
         System.out.println(info);
     }
