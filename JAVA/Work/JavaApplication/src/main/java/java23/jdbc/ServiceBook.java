@@ -1,6 +1,5 @@
 package java23.jdbc;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -20,8 +19,10 @@ public class ServiceBook implements IServiceBook {
         try {
             // Transaction 시작
             conn.setAutoCommit(false);
+            
             DaoBook dao = new DaoBook(conn);
             rs= dao.getCount(book);
+            
             conn.commit(); //Transaction 종료
         } catch (SQLException e) {
             e.printStackTrace();

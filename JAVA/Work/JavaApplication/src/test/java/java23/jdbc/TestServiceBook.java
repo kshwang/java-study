@@ -36,6 +36,7 @@ public class TestServiceBook {
         java.sql.ResultSet rs = svc.selectAll();
         
         rs.next(); // ResultSet에서 다음 row로 커서 이동.
+//      rs.previous(); // 이전 row로 커서 이동.
         
         int bookid  = rs.getInt("bookid");        
         assertEquals(1, bookid);
@@ -174,7 +175,13 @@ public class TestServiceBook {
     }
 
     @Test
-    public void test() {
+    public void testTransCommit() {
         fail("Not yet implemented");
     }
+    
+    @Test
+    public void testTransRollback() {
+        fail("Not yet implemented");
+    }
+
 }

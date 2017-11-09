@@ -37,6 +37,7 @@ public class TestDaoBook {
         java.sql.ResultSet rs = dao.selectAll();
         
         rs.next(); // ResultSet에서 다음 row로 커서 이동.
+//      rs.previous(); // 이전 row로 커서 이동.
         
         int bookid  = rs.getInt("bookid");        
         assertEquals(1, bookid);
@@ -100,6 +101,7 @@ public class TestDaoBook {
         rs.last();
         int rows = rs.getRow();
         assertEquals(dao.getCount(book), rows);
+        System.out.println(rs.last()+" : "+rows);
 ///////////////////////////////        
         
         book.setBookid(1);
@@ -120,18 +122,21 @@ public class TestDaoBook {
         assertNotNull(rs);
         
         rs.next();
+        rs.first();
         bookid = rs.getInt("bookid");
         booknm = rs.getString("bookname");
         assertEquals(3, bookid);
         assertEquals("java", booknm);
 ///////////////////////////////        
+        // 네번째 검증. select * from book where 1 = 1 and bookid=2 and bookname ='mysql';
         
-        book.setBookid(null);
+        book.setBookid(2);
         book.setBookname("mysql");
         rs = dao.selectDynamic(book);
         assertNotNull(rs);
 
-        rs.previous();
+        rs.next();  // 커서의 위치를 다음 row로 이동.
+        rs.first(); // 커서의 위치를 첫번째 row로 이동.
         bookid = rs.getInt("bookid");
         booknm = rs.getString("bookname");
         assertEquals(2, bookid);

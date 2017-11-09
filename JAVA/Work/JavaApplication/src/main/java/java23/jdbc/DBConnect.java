@@ -1,9 +1,5 @@
 package java23.jdbc;
 
-import java.sql.DriverManager;
-
-import com.mysql.jdbc.Connection;
-
 public class DBConnect {
     public static java.sql.Connection connectionMySQL(){
     String url  = "jdbc:mysql://localhost:3306/book_db";
@@ -12,7 +8,7 @@ public class DBConnect {
     java.sql.Connection conn = null;
     
     try {
-        Class.forName("com.mysql.jdbc.Driver"); // driver 적재
+        Class.forName("com.mysql.jdbc.Driver"); // mysql driver 로딩
         conn = java.sql.DriverManager.getConnection(url, user, pawd); // DB 연결
         } catch (ClassNotFoundException e) {
         e.printStackTrace();
