@@ -9,7 +9,7 @@ import org.junit.Test;
 
 public class TestServiceBook {
     
-    private static ServiceBook svc = null;
+    private static ServiceBook svc  = null;
     static java.sql.Connection conn = null;
     
     @BeforeClass

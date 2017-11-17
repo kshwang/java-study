@@ -39,7 +39,7 @@ public class TestOper2 {
     @Test
     public void testDiv() {
         double rs = oper.div();
-        assertEquals(0.5, rs);
+        assertEquals(0.5, rs, 0.1);
     }
     
 }
