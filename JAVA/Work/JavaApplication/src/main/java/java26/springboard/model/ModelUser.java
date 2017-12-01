@@ -1,23 +1,21 @@
-package board.model;
+package java26.springboard.model;
 
-import java.sql.Date;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 public class ModelUser {
-        
-    private Integer userno    = null; // AUTO_INCREMENT,
-    private String  userid    = ""; 
-    private String  email     = ""; 
-    private String  passwd    = ""; 
-    private String  name      = ""; 
-    private String  mobile    = ""; 
-    private Integer retireYN  = null;
-    private String  InsertUID = "";
-    private java.sql.Date InsertDT  = null;
-    private String  UpdateUID = "";
-    private String  UpdateDT  = "";
     
-    // getter,setter
+    Integer  userno      ; // NUMBER(10)      generated as identity
+    String   userid      ; // VARCHAR2( 50)   NOT NULL
+    String   email       ; // VARCHAR2(100)   NOT NULL
+    String   passwd      ; // VARCHAR(  30)    
+    String   name        ; // VARCHAR2( 30)    
+    String   mobile      ; // VARCHAR(20)        
+    Boolean  retireYN    ; // NUMBER(1)       DEFAULT 1 NOT NULL ENABLE     
+
+    String   InsertUID   ; // VARCHAR(40)     NULL                            
+    Date     InsertDT    ; // Date            NULL
+    String   UpdateUID   ; // VARCHAR(40)     NULL                            
+    Date     UpdateDT    ; // Date            NULL
     public Integer getUserno() {
         return userno;
     }
@@ -54,10 +52,10 @@ public class ModelUser {
     public void setMobile(String mobile) {
         this.mobile = mobile;
     }
-    public Integer getRetireYN() {
+    public Boolean getRetireYN() {
         return retireYN;
     }
-    public void setRetireYN(Integer retireYN) {
+    public void setRetireYN(Boolean retireYN) {
         this.retireYN = retireYN;
     }
     public String getInsertUID() {
@@ -66,10 +64,10 @@ public class ModelUser {
     public void setInsertUID(String insertUID) {
         InsertUID = insertUID;
     }
-    public java.sql.Date getInsertDT() {
+    public Date getInsertDT() {
         return InsertDT;
     }
-    public void setInsertDT(java.sql.Date insertDT) {
+    public void setInsertDT(Date insertDT) {
         InsertDT = insertDT;
     }
     public String getUpdateUID() {
@@ -78,14 +76,18 @@ public class ModelUser {
     public void setUpdateUID(String updateUID) {
         UpdateUID = updateUID;
     }
-    public String getUpdateDT() {
+    public Date getUpdateDT() {
         return UpdateDT;
     }
-    public void setUpdateDT(String updateDT) {
+    public void setUpdateDT(Date updateDT) {
         UpdateDT = updateDT;
     }
-
-    // toString
+    
+    
+    public ModelUser() {
+        super();
+    }
+    
     @Override
     public String toString() {
         return "ModelUser [userno=" + userno + ", userid=" + userid + ", email="
@@ -94,26 +96,5 @@ public class ModelUser {
                 + ", InsertDT=" + InsertDT + ", UpdateUID=" + UpdateUID
                 + ", UpdateDT=" + UpdateDT + "]";
     }
-
-    // 생성자
-    public ModelUser() {
-        super();
-    }
-    public ModelUser(Integer userno, String userid, String email, String passwd,
-            String name, String mobile, Integer retireYN, String insertUID,
-            Date insertDT, String updateUID, String updateDT) {
-        super();
-        this.userno = userno;
-        this.userid = userid;
-        this.email = email;
-        this.passwd = passwd;
-        this.name = name;
-        this.mobile = mobile;
-        this.retireYN = retireYN;
-        InsertUID = insertUID;
-        InsertDT = insertDT;
-        UpdateUID = updateUID;
-        UpdateDT = updateDT;
-    } 
-
+    
 }
