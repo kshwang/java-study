@@ -4,14 +4,24 @@
     <meta charset="utf-8">
     <title>배경 스타일</title>
     <style type="text/css">
-        .container{background-image:url(../images/apple-bg.jpg);
-                width:640px; height:420px;
-                background-repeat:no-repeat;
-                border:1px solid #ccc;
-             }
-        .container{position:absolute; top:300px;
-                background-color:white;
-             }
+        .container {
+            background-image:url(../images/apple-bg.jpg);
+            width:640px;
+            height:420px;
+            background-repeat:no-repeat;
+            border: 1px solid #ccc;
+            background-size:cover;
+        }
+        .content {
+            position: relative;
+            top: 300px;
+            width: 100%;
+            background-color: rgba(255,255,255,0.2)
+        }        
+        h1 {
+            font-size: 30px;
+            text-align:center;
+        }
     </style>
 </head>
 <body>
