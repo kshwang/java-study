@@ -3,7 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    
+    <script type="text/javascript">
+        widows.onload = function() {
+            var site = document.getElementById('site');
+            site.onchange = function() {
+                location.href = "http://"+this.value+"naver.com";
+            };
+        };
+
+    </script>
+
 </head>
 <body>
     <form name="fm">

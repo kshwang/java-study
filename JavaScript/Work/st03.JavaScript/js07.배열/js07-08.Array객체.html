@@ -3,7 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    
+    <script type="text/javascript">
+        var arr1 = ['S', 'T', 'O', 'H', 'B'];
+        var arr2 = ['Y', 'A', 'M', 'D'];
+
+        var arr3 = arr1.concat(arr2)
+        console.log(arr3);
+
+        var arr4 = arr1.splice(3,2)
+        console.log(arr1);
+        console.log(arr4);
+
+        var arr5 = [30,3,2,156,34];
+        arr5.sort();
+        console.log(arr5);
+
+        arr5.sort(function(a,b) { // 오름차순
+            return a-b;
+            // 1, 2, 3, 4, 10, 11
+        });
+        console.log(arr5);
+
+        arr5.sort(function(a,b) { // 내림차순
+            return b-a;
+            // 11, 10, 4, 3, 2, 1
+        });
+        console.log(arr5);
+
+        var str1 = arr1.join("/");
+        console.log(str1);
+
+        var str2 = arr1+","+arr2;
+        console.log(str2);
+
+    </script>
+
 </head>
 <body>
 

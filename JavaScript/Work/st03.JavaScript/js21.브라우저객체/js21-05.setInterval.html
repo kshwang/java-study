@@ -3,15 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-	
+    <script>
+        var timer = null;
+        // 페이지 로드 시에 타이머 처리를 등록
+        window.onload = function() {
+            timer = window.setInterval(
+                // 현재 시각을 <div id="result"> 태그에 표시(1000밀리초마다 갱신)
+                function() {
+                    var dat = new Date();
+                    var result = document.getElementById("result");
+                    result.innerHTML = dat.toLocaleTimeString();
+                },
+                1000
+            );
+
+            var start = document.getElementById("start");
+            start.onclick = function(e) {
+                //1.start버튼 비활성화
+                //2.stop버튼 활성화
+                //3.시계표시 시작
+                start.disabled = true;
+                stop.disabled = false;
+            }
+
+            var stop = document.getElementById("stop");
+            stop.onclick = function(e) {
+                start.disabled = false;
+                stop.disabled = true;
+                clearInterval(timer);
+            }
+        };
+    </script>
+
 </head>
 
 <body>
 <p>
     <input id='start' type="button" value="타이머 시작" />
-    <input id='stop'  type="button" value="타이머 정지" />
-    <div id="result">
-	</div>
+    <input id='stop'  type="button" value="타이머 정지" disabled="disabled" />
+    <div id="result">	</div>
 </p>
 </body>
 </html>

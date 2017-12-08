@@ -3,9 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    
+    <script type="text/javascript">
+        window.onload = function(event) {
+            var p = document.getElementsByName('name');
+
+            for(var i in p) {
+                p[i].count = i;
+                p[i].onclick = function(event) {
+                    window.alert(this.count+' 번째 name 클릭!');
+                }
+            };
+        };
+
+    </script>
+
 </head>
-<body>
+<body>
     <p name='name' count="0">고전 이벤트 모델</p>
     <p name='name' count="1">고전 이벤트 모델</p>
     <p name='name' count="2">고전 이벤트 모델</p>

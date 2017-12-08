@@ -3,7 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>객체 생성</title>
-    
+    <script type="text/javascript">
+        var foo = {
+            name : 'foo',
+            age : 30,
+            array : [1,4,5,5],
+            run : function() {
+                return this.name;
+            }
+        };
+
+        // CRUD:R. 읽기-마침표 표기법
+        console.log(foo.name);
+        console.log(foo.age);
+
+        // CRUD:R. 읽기-대괄호 표기법
+        console.log(foo[ 1 ]);
+        console.log(foo['age']);
+        console.log(foo.run());
+
+        // 프로퍼티 수정
+        foo.name = 'bar';
+        foo.age = 50;
+
+        // 프로퍼티 추가
+        foo.gender = '';
+        foo.nickname = '';
+
+        // 프로퍼티 삭제
+        delete foo.gender;
+        delete foo.nickname;
+    </script>
+
 </head>
 <body>
 

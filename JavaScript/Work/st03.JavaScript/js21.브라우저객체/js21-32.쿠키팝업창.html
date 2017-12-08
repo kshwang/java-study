@@ -8,9 +8,32 @@
         .line { background-color:#c1c1c1; }
         .subtitle { background-color:#ffffff; font-family:verdana, 돋움; font-size:12px; font-weight:bold; color:#7359C8; }
     </style>
-	
-	
-	
+    <script type="text/javascript" src="MYAPP.Variable.js"></script>
+    <script type="text/javascript" src="MYAPP.Cookie.js"></script>
+    <script type="text/javascript">
+    	/* 이페이지에서 사용할 쿠키명:naps
+    	*/
+    	window.onload = function() {
+    		if(MYAPP.Cookie.read('naps')) {
+    			//자신의 창을 닫는다
+    			window.close();
+    		}
+    		else {
+
+    		}
+    		var chkClose = document.getElementsByName('chkClose');
+    		chkClose[0].onclick = function() {
+    			//0.checkbox가 체트된 상태이면
+    			//1.naps라는 쿠키(1일:1)를 만든다
+    			//2.창을 닫는다
+    			if(this.checked === true) {
+	    			MYAPP.Cookie.create('naps', 'aaa', 1);
+    			}
+    			window.close();
+    		}
+
+    	}
+    </script>
 
 </head>
 
