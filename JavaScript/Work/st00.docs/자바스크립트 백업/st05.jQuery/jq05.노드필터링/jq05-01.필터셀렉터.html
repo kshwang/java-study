@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <style>
+        div   { background: #FFF; }
+        table { border: 1px solid #AAA; width:98%; }
+        td    { border: 1px solid #AAA; width: 20px; height: 20px; }
+    </style>
+    <!-- 임포트 -->
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+            $(document).ready(function(e){
+                $('#eq').click(function(event) {
+                        //style = "background-color: red;"
+                        $('tr:eq(0) > td:eq(7)').css('background-color','red');
+                 });
+                $('#gt').click(function(event) {
+                        $('tr:eq(1) > td:gt(2)').css('background-color','yellow');
+                 });
+                $('#lt').click(function(event) {
+                        $('tr:eq(1) > td:lt(2)').css('background-color','orange');
+                 });
+                $('#odd').click(function(event) {
+                        $('tr:eq(2) > td:odd(1)').css('background-color','blue');
+                 });
+                $('#even').click(function(event) {
+                        $('tr:eq(2) > td:even(1)').css('background-color','green');
+                });
+                $('#first').click(function(event) {
+                        $('tr:eq(3) > td:first(1)').css('background-color','pink');
+                 });
+                $('#last').click(function(event) {
+                        $('tr:eq(3) > td:last(1)').css('background-color','green');
+                 });
+                $('#ex1').click(function(event) {
+                        $('tr:even').css('background-color','red');
+                 });
+                $('#ex2').click(function(event) {
+                        $('tr > td:odd').css('background-color','green');
+                 });
+                $('#ex3').click(function(event) {
+                        $('tr:even > td:odd').css('background-color','pink');
+                 });
+                $('#ex4').click(function(event) {
+                        $('td:nth-child(3n+1)').css('background-color','pink');
+                 });
+                $('#ex5').click(function(event) {
+                        $('td:first-child').css('background-color','orange');
+                 });
+                $('#ex6').click(function(event) {
+                        $('td:first-child').css('background-color','red');
+                        $('td:last-child').css('background-color','yellow');
+                 });
+                $('#ex7').click(function(event) {
+                        $('td:nth-child(3)').css('background-color','yellow');
+                 });
+                $('#ex8').click(function(event) {
+                        $('td:first-child').css('background', 'red');
+                        $('td:last-child').css('background', 'yellow');
+                        $('tr:eq(2)>td:gt(4)').remove();
+                        $('tr:eq(2)>td:gt(3)').css('background', 'yellow').attr('colspan', '6');
+                 });
+            });
+    </script>
+</head>
+<body>
+    <h2>Filter Selector</h2>
+        <table>
+            <tr>
+                <td>#1</td> <td>#2</td> <td>#3</td> <td>#4</td> <td>#5</td>
+                <td>#6</td> <td>#7</td> <td>#8</td> <td>#9</td> <td>#10</td>
+            </tr>
+            <tr>
+                <td>#11</td> <td>#12</td> <td>#13</td> <td>#14</td> <td>#15</td>
+                <td>#16</td> <td>#17</td> <td>#18</td> <td>#19</td> <td>#20</td>
+            </tr>
+            <tr>
+                <td>#21</td> <td>#22</td> <td>#23</td> <td>#24</td> <td>#25</td>
+                <td>#26</td> <td>#27</td> <td>#28</td> <td>#29</td> <td>#30</td>
+            </tr>
+            <tr>
+                <td>#31</td> <td>#32</td> <td>#33</td> <td>#34</td> <td>#35</td>
+                <td>#36</td> <td>#37</td> <td>#38</td> <td>#39</td> <td>#40</td>
+            </tr>
+        </table>
+    <hr>
+    <div>
+        <input id='eq'      type='button' value=':eq'>
+        <input id='gt'      type='button' value=':gt(2)'>
+        <input id='lt'      type='button' value=':lt(2)'>
+        <input id='odd'     type='button' value=':odd'>
+        <input id='even'    type='button' value=':even'>
+        <input id='first'   type='button' value=':first'>
+        <input id='last'    type='button' value=':last'>
+        <hr>
+        <input id='ex1'      type='button' value='ex1'>
+        <input id='ex2'      type='button' value='ex2'>
+        <input id='ex3'      type='button' value='ex3'>
+        <input id='ex4'      type='button' value='ex4'>
+        <input id='ex5'      type='button' value='ex5'>
+        <input id='ex6'      type='button' value='ex6'>
+        <input id='ex7'      type='button' value='ex7'>
+        <input id='ex8'      type='button' value='ex8'>
+    </div>
+</body>
+</html>

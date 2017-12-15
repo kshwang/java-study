@@ -14,8 +14,63 @@
         .white  { background: white;  }
         .gray   { background: gray;   }
     </style>
-    
-    
+    <!-- 임포트 -->
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(event){
+            $('#value_read').click(function(event) {
+                alert($('#text').val());
+            });
+
+            $('#value_create').click(function(event) {
+                var val = $('#text').val()+'> 글자추가';
+                $('#text').val(val);
+            });
+
+            $('#value_update').click(function(event) {
+                $('#text').val($('#value_update').text());
+            });
+
+            $('#value_delete').click(function(event) {
+                $('#text').val('');
+            });
+
+            $('#prop_read').click(function(event) {
+                var cb = $('input[name="aaa"]').prop('checked');
+                alert(cb);
+            });
+
+            $('#prop_create').click(function(event) {
+                var rd = $('input[name="bbb"]').prop('checked');
+                if(rd == true) {
+                    $('input[type="radio"]').prop('checked',false);
+                }
+                else {
+                    $('input[type="radio"]').prop('checked',true);
+                };
+            });
+
+            $('#prop_update').click(function(event) {
+                var cb = $('input[name="aaa"]').prop('checked');
+                if(cb == true) {
+                    $('input[type="checkbox"]').prop('checked',false);
+                }
+                else {
+                    $('input[type="checkbox"]').prop('checked',true);
+                };
+            });
+
+            $('#prop_delete').click(function(event) {
+                var ds = $('input[name="ccc"]').prop('disabled');
+                if(ds == true) {
+                    $('input[name="ccc"]').prop('disabled',false);
+                }
+                else {
+                    $('input[name="ccc"]').prop('disabled',true);
+                };
+            });
+        });
+    </script>
 </head>
 <body>
 
@@ -37,22 +92,15 @@
 
     <div>
         <h3>프로퍼티 CRUD</h3>
-        <input type='checkbox' name='aaa' checked />
-        <input type='radio'    name='bbb' value='aaaa1' />
-        <input type='text'     name='ccc' value='aaaa1' disabled />
+        <input type='checkbox' name='aaa' checked/>
+        <input type='radio' name='bbb' value='aaaa1'/>
+        <input type='text' name='ccc' value='aaaa1' disabled/>
         <br>
         <button id="prop_read"  >checkbox checked 프러퍼티 읽기(R)</button>
-        <button id="prop_create">radio에 checked 프러퍼티 추가(C)</button>
-        <button id="prop_update">checkbox checked 프러퍼티 수정(U)</button>
-        <button id="prop_delete">disabled 프러퍼티 삭제(D)</button>
+        <button id="prop_create">radio에 checked 프러퍼티 변경(C)</button>
+        <button id="prop_update">checkbox checked 프러퍼티 변경(U)</button>
+        <button id="prop_delete">disabled 프러퍼티 변경(D)</button>
         <div id="result_prop">  </div>
     </div>
 </body>
 </html>
-
-
-
-
-
-
-

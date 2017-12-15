@@ -4,9 +4,33 @@
     <meta charset="UTF-8">
     <style>
         div,span { background: #FFF; padding: 10px; margin: 10px; }
+        #current { background-color: yellow }
     </style>
-    
-    
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(e) {
+            $('#firstSibling').click(function(event) {
+                $('#current').prevAll('div').last().css('border','2px blue dotted');
+                $('#current').parent().children('div').first().css('border','2px blue dotted');
+            });
+
+            $('#prevSibling').click(function(event) {
+                $('#current').prev('div').css('border','2px blue dotted');
+            });
+
+            $('#nextSibling').click(function(event) {
+                $('#current').next('div').css('border','2px blue dotted');
+            });
+
+            $('#lastSibling').click(function(event) {
+                $('#current').nextAll('div').last().css('border','2px blue dotted');
+                $('#current').parent().children('div').last().css('border','2px blue dotted');
+            });
+
+        });
+
+    </script>
+
 </head>
 <body>
     <h2>DOM Selector</h2>

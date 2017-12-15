@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>DOM 조작 메서드</title>
+    <style>
+        div { margin: 5px; border: 2px red solid;  background: #ccff0e; }
+        .selected { border: 4px blue solid  !important;}
+        .added    { border: 2px dashed #000000; }
+        #center { border: 2px dashed #696cff; }
+        #center p { margin: 10px; background: #b96dff; }
+        .border { border: 2px dashed #ffb42e; margin: 5px; display:block; background: #b96dff; }
+    </style>
+    <!-- 임포트 -->
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+
+        var data = new Date().toLocaleString()
+
+            $(document).ready(function(e){
+                $('.html').click(function(event) {
+                    $('#center').html( '<p class="selected">결혼은늦게...</p>')
+                 });
+                $('.prepend').click(function(event) {
+                    $('#center').prepend('<p class="added">prepend '+ data +' </p>');
+                 });
+                $('.append').click(function(event) {
+                    $('#center').append('<p class="added">append </p>');
+                 });
+                $('.before').click(function(event) {
+                    $('#center').before('<p class="added">before  </p>');
+                 });
+                $('.after').click(function(event) {
+                    $('#center').after('<p class="added">after </p>');
+                 });
+                $('.wrap').click(function(event) {
+                    $('#center').wrap('<span class="border">'+ data + '</span>');
+                 });
+                $('.replace').click(function(event) {
+                    $('.two').replaceWith('<p class="box border">replace text '+ data +'</p>');
+                 });
+                $('.clone').click(function(event) {
+                    $('#result').append($('#center').clone());
+                 });
+                $('.empty').click(function(event) {
+                    $('.box').empty().html('').css('height','21');
+                 });
+                $('.remove').click(function(event) {
+                    $('.box').remove();
+                 });
+            });
+    </script>
+</head>
+<body>
+    <p>DOM 조작 메서드</p>
+
+    <input class="html"     type="button" value="html()">
+    <input class="prepend"  type="button" value="prepend()">
+    <input class="append"   type="button" value="append()">
+    <input class="before"   type="button" value="before()">
+    <input class="after"    type="button" value="after()">
+    <hr>
+    <input class="wrap"     type="button" value="wrap()">
+    <input class="replace"  type="button" value="replace()">
+    <input class="clone"    type="button" value="clone()">
+    <input class="empty"    type="button" value="empty()">
+    <input class="remove"   type="button" value="remove()">
+
+    <hr>
+    <div id="main">
+        <div id="result"></div>
+        <hr>
+        <div id="container">
+            <div id="header">
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+                <div id="center">center
+                    <p class="box one"  >jQuery</p>
+                    <p class="box two"  >Mobile</p>
+                    <p class="box three">Story</p>
+                </div>
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

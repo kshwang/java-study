@@ -7,8 +7,95 @@
         table { border: 1px solid #AAA; width:98%; }
         td    { border: 1px solid #AAA; width: 20px; height: 20px; }
     </style>
-    
-    
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(e) {
+            $('#eq').click(function(event) {
+                $('tr:eq(0) > td:eq(7)').css('background-color','red');
+            });
+
+            $('#gt').click(function(event) {
+                $('tr:eq(1) > td:gt(2)').css('background-color','yellow');
+            });
+
+            $('#lt').click(function(event) {
+                $('tr:eq(1) > td:lt(2)').css('background-color','orange');
+            });
+
+            $('#odd').click(function(event) {
+                $('tr:eq(2) > td:odd').css('background-color','blue');
+            });
+
+            $('#even').click(function(event) {
+                $('tr:eq(2) > td:even').css('background-color','green');
+            });
+
+            $('#first').click(function(event) {
+                $('tr:eq(3) > td:eq(0)').css('background-color','pink');
+                $('tr:eq(3) > td:first').css('background-color','pink');
+            });
+
+            $('#last').click(function(event) {
+                $('tr:eq(3) > td:eq(9)').css('background-color','green');
+                $('tr:eq(3) > td:last').css('background-color','green');
+            });
+
+            $('#ex1').click(function(event) {
+                $('tr:even > td').css('background-color','red');
+            });
+
+            $('#ex2').click(function(event) {
+                $('tr > td:odd').css('background-color','green');
+            });
+
+            $('#ex3').click(function(event) {
+                $('tr:even > td:odd').css('background-color','pink');
+            });
+
+            $('#ex4').click(function(event) {
+                //3의 배수
+                $('tr > td:nth-child(3n+1)').css('background-color','pink');
+            });
+
+            $('#ex5').click(function(event) {
+                //1부터+10
+                $('tr > td:nth-child(10n+1)').css('background-color','orange');
+                $('td:nth-child(1)').css('background-color','orange');
+
+                $('td').filter(function(index) {
+                    return index % 10 === 0 ? true: false;
+                }).css('background-color','orange');
+
+                var trs = $('tr');
+                for(var i=0; i<trs.length; i++) {
+                    $(trs[i]).children('td:first').css('background-color','orange');
+                };
+            });
+
+            $('#ex6').click(function(event) {
+                //1부터+10 & 0부터+10
+                $('tr > td:nth-child(10n+1)').css('background-color','red');
+                $('tr > td:nth-child(10n+0)').css('background-color','yellow');
+            });
+
+            $('#ex7').click(function(event) {
+                //3부터+10
+                $('tr > td:nth-child(10n+3)').css('background-color','yellow');
+            });
+
+            $('#ex8').click(function(event) {
+                //1부터+10 & 0부터+10 & colspan(25~30)
+                $('tr:eq(2) > td:eq(4)').attr('colspan','6');
+                $('tr:eq(2) > td:gt(4)').remove();
+                $('tr > td:first-child').css('background-color','red');
+                $('tr > td:last-child').css('background-color','yellow');
+            });
+
+        });
+
+    </script>
+
+
 </head>
 <body>
     <h2>Filter Selector</h2>

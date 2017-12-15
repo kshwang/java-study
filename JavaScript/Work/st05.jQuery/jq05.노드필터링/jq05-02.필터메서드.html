@@ -7,8 +7,48 @@
         td { border:1px solid #AAA; width:25px; height:25px; }
         div { background : #FFF; margin:5px; width:100%; }
     </style>
-    
-    
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(e) {
+            $('#selector').click(function(event) {
+                $('li > ul').css('background-color','red');
+            });
+
+            $('#method').click(function(event) {
+                //$('*').css('background', '');
+                $('li').children('ul').css('background', 'pink');
+            });
+
+            $('#eq2').click(function(event) {
+                $('div > ul> li:eq(2)').css('background-color','gray');
+            });
+
+            $('#eq2method').click(function(event) {
+                //$('*').css('background', '');
+                $('div > ul').children('li').eq(2).text('eq text').css('background-color','gray');
+            });
+
+            $('#first').click(function(event) {
+                $('ul > li:first').css('background-color','gray');
+            });
+
+            $('#firstmethod').click(function(event) {
+                //$('*').css('background', '');
+                $('div > ul').children('li').first().text('first text').css('background-color','gray');
+            });
+
+            $('#last').click(function(event) {
+                $('ul > li:last').css('background-color','gray');
+            });
+
+            $('#lastmethod').click(function(event) {
+                $('div > ul').children('li').last().text('last text').css('background-color','gray');
+            });
+
+        });
+
+    </script>
+
 </head>
 <body>
     <div>
@@ -27,16 +67,16 @@
     </div>
     <hr>
     <input id="selector" type="button" value="셀렉터를이용하는방법">
-    <input id="method"   type="button" value="재검색을이용하는방법">
+    <input id="method"  type="button" value="재검색을이용하는방법">
 	<hr>
-    <input id="eq2"         type="button" value="eq(2)">
-    <input id="eq2method"   type="button" value="eq(2) 재검색">
+    <input id="eq2"    type="button" value="eq(2)">
+    <input id="eq2method" type="button" value="eq(2) 재검색">
     <hr>
-    <input id="first"       type="button" value="first()">
+    <input id="first"    type="button" value="first()">
     <input id="firstmethod" type="button" value="first() 재검색">
     <hr>
-    <input id="last"        type="button" value="last()">
-    <input id="lastmethod"  type="button" value="last() 재검색">
+    <input id="last"    type="button" value="last()">
+    <input id="lastmethod" type="button" value="last() 재검색">
     <hr>
 </body>
 </html>

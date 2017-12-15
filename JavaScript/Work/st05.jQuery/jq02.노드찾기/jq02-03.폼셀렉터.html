@@ -8,9 +8,28 @@
 	    table { border: 1px solid #AAA; width:100% }
 	    td    { border: 1px solid #AAA; width: 20px; height: 20px; }
 	</style>
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function($) {
+            $('#checked').click(function(event) {
+                $('input:checkbox:checked').css('outline','2px blue dotted');
+            });
 
-	
-	
+            $('#radio').click(function(event) {
+                $('input:radio:checked').css('outline','2px blue dotted');
+            });
+
+            $('#selected').click(function(event) {
+                $('option:selected').css('outline','2px blue dotted');
+            });
+
+            $('#hobby').click(function(event) {
+                $('input[name="hobby"]:checked').css('outline','2px blue dotted');
+            });
+
+        });
+    </script>
+
 </head>
 <body>
     <h2>Filter Selector</h2>
@@ -52,7 +71,7 @@
         <span class='item'> 요가 </span>
         <input type='checkbox' name='hobby' value='yoga'>
         <span class='item'> 독서 </span>
-        <input type='checkbox' name='hobby' value='reading'>
+        <input type='checkbox' name='hobby' value='reading' checked>
     </div>
     <hr>
     <input id='checked'  type='button' value='checked'   />

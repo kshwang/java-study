@@ -10,8 +10,46 @@
         a.pdf { background-image: url(images/pdf.png);	}
         a.image { background-image: url(images/image.png); }
     </style>
-    
-    
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(e) {
+
+            $('a[href $= ".ppt"]').click(function(event) {
+                $('a[href $= ".ppt"]').addClass('presentation');
+                return false;
+            });
+
+            $('a[href $= ".mp4"]').click(function(event) {
+                $('a[href $= ".mp4"]').addClass('video');
+                return false;
+            });
+
+            $('a[href $= ".pdf"]').click(function(event) {
+                $('a[href $= ".pdf"]').addClass('pdf');
+                return false;
+            });
+
+            $('a[href $= ".gif"]').click(function(event) {
+                $('a[href $= ".gif"]').addClass('pdf');
+                return false;
+            });
+
+            $('a[href $= ".png"]').click(function(event) {
+                $('a[href $= ".png"]').addClass('pdf');
+                return false;
+            });
+
+            $('a[href $= ".jpg"]').click(function(event) {
+                return false;
+            });
+
+            $('a[href $= ".hwp"]').click(function(event) {
+                return false;
+            });
+
+        });
+    </script>
+
 </head>
 <body>
 <div id="content">

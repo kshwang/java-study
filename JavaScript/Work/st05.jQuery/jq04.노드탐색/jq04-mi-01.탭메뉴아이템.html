@@ -14,8 +14,8 @@
             display: inline-block;
             float: left;
         }
-        .tab-menu li:hover     { background-position-y: -40px; }
-        .tab-menu li.select    { background-position-y: -80px; height: 80px; }
+        .tab-menu li:hover   { background-position-y: -40px; }
+        .tab-menu li.select   { background-position-y: -80px; height: 80px; }
         .tab-menu li.menuitem1 { background-image: url(images/newbtn.bar.1.png); }
         .tab-menu li.menuitem2 { background-image: url(images/newbtn.bar.2.png); }
         .tab-menu li.menuitem3 { background-image: url(images/newbtn.bar.3.png); }
@@ -29,12 +29,49 @@
         span { font-size: 50px; font-family: "NanumGothic", arial;}
 
     </style>
+    <script type="text/javascript" src="../jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(e) {
+            var ob = $('#tabMenu1>li');
+            var i = 0, si = 0;
 
-    
-    
+            $('#mission1').click(function(event) {
+                $('#result').text(ob.length);
+            });
+
+            $('#mission2').click(function(event) {
+                $(ob).click(function(event) {
+                    $('#result').text($(this).index());
+                });
+            });
+
+            $('#mission3').click(function(event) {
+                si = setInterval(function() {
+                    $("#tabMenu1>li:eq("+i+")").addClass('select');
+                    $('#result').text(i);
+                    i = i + 1;
+                    if(i == 7) {
+                        i = 0;
+                        $(ob).removeClass('select');
+                    };
+                },1000); //매1초마다실행.
+            });
+
+            $('#mission4').click(function(event) {
+                clearInterval(si);
+                $(ob).click(function(event) {
+                    $('#result').text($(this).index());
+                    $(this).toggleClass('select');
+                });
+            });
+
+        });
+
+    </script>
 
 </head>
-
+//3.addClass('select')
+//4.removeClass('select')
 <body>
     <ul class="tab-menu" id="tabMenu1">
         <li class="menuitem1"> google </li>
@@ -62,7 +99,8 @@
             <br>
             <input id='mission3'   type='button' value='클릭'>
         </p>
-        <p>미션 04: <br>탭메뉴 구현하기
+        <p>미션 04: 탭메뉴 구현하기<br>탭메뉴 아이템을 클릭하면 <strong>클릭된 아이템에만</strong>
+            select클래스를 적용, select클래스가 적용된 아이템은 select클래스 제거.
             <br>
             <input id='mission4'   type='button' value='클릭'>
         </p>
